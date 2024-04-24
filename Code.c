@@ -40,6 +40,7 @@
 int main(void)
 {
 	volatile uint32_t *clock_reg    =   (uint32_t*) (RCC_base_add + APB2_offset);
+	*clock_reg |=  (1 << 2) | (1 << 3);      // Enable the clock of PORTA & PORTB peripheral in APB2 bus
 
 	volatile uint32_t *porta_mode_reg_low     =    (uint32_t*) (PORTA_base_add + GPIO_CRL_offset);
 	volatile uint32_t *porta_mode_reg_high    =    (uint32_t*) (PORTA_base_add + GPIO_CRH_offset);
